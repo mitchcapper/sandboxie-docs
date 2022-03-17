@@ -15,17 +15,17 @@ Sandboxie Plus is the modern graphical agent to Sandboxie, and can control most 
 
 ### Menus
 
-* Main Menu:
-  
-  * [Sandbox Menu](SBPlusSandboxMenu.md)
-  
-  * [View Menu](ViewMenu.md)
-  
-  * [Sandbox Menu](SBPlusSandboxSubMenu.md)
-  
-  * [Options Menu](ConfigureMenu.md)
-  
-  * [Help Menu](HelpMenu.md)
+
+
+* [Sandbox Menu](SBPlusSandboxMenu.md)
+
+* [View Menu](ViewMenu.md)
+
+* [Sandbox Sub Menu](SBPlusSandboxSubMenu.md)
+
+* [Options Menu](ConfigureMenu.md)
+
+* [Help Menu](HelpMenu.md)
 
 * See Also: [Tray Icon Menu](SBPlusTrayIconMenu.md)
 
