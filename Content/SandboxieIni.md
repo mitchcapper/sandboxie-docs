@@ -2,7 +2,7 @@
 
 Some aspects of the operation of Sandboxie can be altered or fine-tuned through the use of a human-readable textual configuration file called Sandboxie.ini. This section describes the structure and contents of the file.
 
-As a general rule, manual editing of the configuration file is discouraged. You are advised to use [Sandboxie Control](SandboxieControl.md) to make configuration changes. See [Sandbox Settings](SandboxSettings.md).
+As a general rule, manual editing of the configuration file is discouraged. You are advised to use the Sandboxie Plus Agent [Sandboxie Plus](SandboxiePlus.md)  to make configuration changes (or for Classic, [Sandboxie Control](SandboxieControl.md)). See [Sandbox Settings](SBPlusSandboxSettings.md) for more details on editing the file directly in the Sandboxie Agent.
 
 ## Location
 
@@ -12,7 +12,7 @@ Sandboxie looks for the file Sandboxie.ini in the following folders, in this ord
 
 The search for Sandboxie.ini ends when an instance of the file is found, and all other instances are ignored.
 
-When [Sandboxie Control](SandboxieControl.md) updates the configuration, it rewrites the file Sandboxie.ini file in the folder from which the configuration was last read. Thus, if the file is manually moved, Sandboxie configuration must be manually [reloaded](ConfigureMenu.md#reload-configuration). (Restarting the computer would have the same effect.)
+When the [Sandboxie Agent](SandboxieAgent.md) tool updates the configuration, it rewrites the file Sandboxie.ini file in the folder from which the configuration was last read. Thus, if the file is externally updated, Sandboxie configuration must be manually [reloaded](ConfigureMenu.md#reload-configuration) (Restarting the computer would have the same effect.).  [Sandboxie Plus](SandboxiePlus.md) allows editing of the raw INI configuration in app, if you do this it will auto reload the changes.
 
 **Note:** Sandboxie does not support any other custom location for the Sandboxie.ini file.
 
@@ -24,7 +24,7 @@ Configuration settings in the file are split into groups, or sections. A section
 
 * One Sandbox Settings section for each sandbox known to Sandboxie. A valid sandbox name is a string of letters and digits, and has a maximum length of 32 characters. The Sandbox Settings section should contain the setting [Enabled](Enabled.md)=yes. 
 
-* One User Settings section for each user account. These settings record the state of [Sandboxie Control](SandboxieControl.md) for a particular user account, and include such information as the size of the window. These settings are not documented here, but see a brief discussion below. 
+* One User Settings section for each user account. These settings record the state of The UI for a particular user account, and include such information as the size of the window. These settings are not documented here, but see a brief discussion below. 
 
 A simple Sandboxie.ini file may look like this.
 
@@ -48,11 +48,11 @@ The example shows four sections: The global section (GlobalSettings), two sandbo
 
 Lines that begin with a hash sign (#) are comments. These lines are skipped.
 
-**Note:** During its operation, [Sandboxie Control](SandboxieControl.md) regularly rewrites the Sandboxie.ini file, and this rewrite loses all comments. However, unrecognized settings are not lost during the rewrite, so one workaround is to write comments in the form Comment=text.
+**Note:** During its operation, The [Sandboxie Agent](SandboxieAgent.md) regularly rewrites the Sandboxie.ini file, and this rewrite loses all comments. However, unrecognized settings are not lost during the rewrite, so one workaround is to write comments in the form Comment=text.
 
 The configuration file can contain up to 30,000 lines of text. Each line can be up to 1000 characters long.
 
-The file is UNICODE-encoded, which means each character is composed of two bytes. Many text file editors, including the system Notepad, handle this encoding properly.
+The file is UTF-16 UNICODE-encoded, which means each character is composed of two bytes. Many text file editors, including the system Notepad, handle this encoding properly.
 
 ## Settings
 
@@ -60,8 +60,8 @@ The file is UNICODE-encoded, which means each character is composed of two bytes
 
 * Listed in the navigation bar on the right under the heading Global Settings.
 * Settings apply to the general operation of Sandboxie, not to any particular sandbox.
-* Global settings must be placed in the GlobalSettings section, and cannot be overriden by also including them in a sandbox section.
-* Sandbox settings may appear in the GlobalSettings section, and can be overriden by also including them in a sandbox section. 
+* Global settings must be placed in the GlobalSettings section, and cannot be overridden by also including them in a sandbox section.
+* Sandbox settings may appear in the GlobalSettings section, and can be overridden by also including them in a sandbox section. 
 
 ### Sandbox Settings:
 
@@ -70,7 +70,7 @@ The file is UNICODE-encoded, which means each character is composed of two bytes
 * Settings apply to all sandboxes when specified in the [GlobalSettings] section.
 * Settings in the sandbox section override corresponding settings from [GlobalSettings]. 
 
-In the example above, the sandbox setting [FileRootPath](FileRootPath.md) appears in [GlobalSettings] and applies to all sandboxes, but note that it is overriden in section [InstallBox].
+In the example above, the sandbox setting [FileRootPath](FileRootPath.md) appears in [GlobalSettings] and applies to all sandboxes, but note that it is overridden in section [InstallBox].
 
 * Sandbox settings can be applied to a specific program. See [Program Name Prefix](ProgramNamePrefix.md).
 * Some sandbox settings are [Yes Or No Settings](YesOrNoSettings.md).
@@ -78,7 +78,7 @@ In the example above, the sandbox setting [FileRootPath](FileRootPath.md) appear
 
 ### User Settings
 
-* Settings record the state of [Sandboxie Control](SandboxieControl.md), for instance the position of the window.
+* Settings record the state of [Sandboxie Control](SandboxieControl.md) (note that [Sandboxie Plus](SandboxiePlus.md) stores several settings instead in the SandboxiePlus.ini), for instance the position of the window.
 * Each user account is directed to a different [UserSettings_XXXXXXXX] section.
 * When a new [UserSettings_XXXXXXXX] is created, default values are taken from the [UserSettings_Default] section, if it exists.
 * If the section [UserSettings_Portable] exists, all user accounts are directed to use this section. 
